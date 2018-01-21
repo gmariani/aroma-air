@@ -52,7 +52,7 @@ package com.coursevector.aroma.view {
 		
 		public static const NAME:String = 'StageMediator';
 		
-		private var tracker:AnalyticsTracker;
+		//private var tracker:AnalyticsTracker;
 		private var eM:EditScreenMediator;
 		private var hM:HeaderMediator;
 		private var dM:DisplayScreenMediator;
@@ -64,8 +64,8 @@ package com.coursevector.aroma.view {
 			super(NAME, viewComponent);
 			
 			// Analytics
-			tracker = new GATracker(viewComponent, "UA-349755-1", "AS3", false);
-			tracker.trackPageview("/tracking/projects/aroma");
+			ApplicationFacade.TRACKER = new GATracker(viewComponent, "UA-349755-7", "AS3", false);
+			ApplicationFacade.TRACKER.trackPageview("/aroma/" + ApplicationFacade.VERSION + "/MainScreen");
 			
 			root.alpha = 0;
 			root.visible = false;

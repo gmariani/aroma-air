@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////////
 //
 //  COURSE VECTOR
 //  Copyright 2008 Course Vector
@@ -149,7 +149,21 @@
  * Fixed minor UI glitches
  * Fixed selecting first recipe in a sorted list
  * 
+ * 2.3.1
+ * -----
+ * Fixed word wrapping on recipes with images
+ * Fixed word wrapping on printed recipes
+ * 
+ * 2.4.0
+ * -----
+ * Added a Random recipe button
+ *
  * 2.5.0
+ * -----
+ * Updated to AIR 3.6
+ * Updated Google Analytics ID/tracking
+ * 
+ * 2.X.0
  * -----
  * Tagging
  * import database (drag-drop)
@@ -186,10 +200,14 @@ package com.coursevector.aroma {
 	import com.coursevector.aroma.controller.PrintCommand;
 	import com.coursevector.aroma.controller.SQLCommand;
 	import com.coursevector.aroma.view.components.PopUp;
+	
+	import com.google.analytics.AnalyticsTracker;
+	import com.google.analytics.GATracker;
     
     public class ApplicationFacade extends Facade implements IFacade {
 		
-		public static var VERSION:String = "2.3.1";
+		public static var VERSION:String = "2.5.0";
+		public static var TRACKER:AnalyticsTracker;
 		public static var CENTER_HEIGHT:Number = 0;
 		public static const GRIPPER_SIZE:uint = 10;
 		public static const URL_PATH:String = "http://www.coursevector.com/projects/aroma/";

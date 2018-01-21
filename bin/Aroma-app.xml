@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no" ?><application xmlns="http://ns.adobe.com/air/application/1.5">
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><application xmlns="http://ns.adobe.com/air/application/3.6">
 	<id>com.coursevector.aroma</id>
-	<version>2.4.0</version>
+	<versionLabel>2.5.0</versionLabel>
+	<versionNumber>2.5.0</versionNumber>
 	<filename>Aroma</filename>
 	<name>Course Vector Aroma</name>
 	<description>Your easy to navigate Recipe House! Check http://blog.coursevector.com/aroma for updates.</description>
-	<copyright>Copyright (c) 2010 Course Vector</copyright>
+	<copyright>Copyright (c) 2014 Course Vector</copyright>
 	<installFolder>Course Vector</installFolder>
 	<programMenuFolder>Course Vector</programMenuFolder>
 	<initialWindow>
@@ -51,4 +52,5 @@
 			</icon>
 		</fileType>
 	</fileTypes>
+  	<supportedProfiles>desktop </supportedProfiles>
 </application>

@@ -99,6 +99,7 @@ package com.coursevector.aroma.view {
 					aw.activate();
 					aw.orderToFront();
 					aw.visible = true;
+					ApplicationFacade.TRACKER.trackPageview("/aroma/" + ApplicationFacade.VERSION + "/AboutScreen");
 					break;
 			}
 		}

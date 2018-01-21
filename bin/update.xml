@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <update xmlns="http://ns.adobe.com/air/framework/update/description/1.0">
-	<version>2.4.0</version>
-	<url>http://blog.coursevector.com/downloads/Aroma-2-4-0.air</url>
+	<version>2.5.0</version>
+	<url>http://blog.coursevector.com/downloads/Aroma-2-5-0.air</url>
 	<description><![CDATA[
+	
+	YOU MUST UNINSTALL AND REINSTALL FROM http://blog.coursevector.com/aroma FOR UPDATE
+	
 	New version includes:
-		* Added a Random recipe button
+		* Updated to AIR 3.6
+		* Updated expired AIR Signed Certificate
 	]]></description>
 </update>

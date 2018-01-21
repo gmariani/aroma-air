@@ -44,7 +44,7 @@
 			var appXML:XML = NativeApplication.nativeApplication.applicationDescriptor;
 			var air:Namespace = appXML.namespaceDeclarations()[0]; // Define the Namespace
 			appId = appXML.air::id;
-			appVersion = appXML.air::version;
+			appVersion = appXML.air::versionNumber;
 			appName = appXML.air::name;
 			
 			_compare = function(local:String, remote:String):Boolean {

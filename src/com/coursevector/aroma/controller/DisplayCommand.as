@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////////
 //
 //  COURSE VECTOR
 //  Copyright 2008 Course Vector
@@ -37,6 +37,7 @@ package com.coursevector.aroma.controller {
 					TweenLite.to(eM, .75, { y: onScreenY } );
 					hM.hideDisplayButtons();
 					hM.showEditButtons();
+					ApplicationFacade.TRACKER.trackPageview("/aroma/" + ApplicationFacade.VERSION + "/EditScreen");
 					break;
 				default :
 					TweenLite.to(dM, .75, { y: onScreenY } );
@@ -44,6 +45,7 @@ package com.coursevector.aroma.controller {
 					hM.showDisplayButtons();
 					hM.hideEditButtons();
 					sendNotification(ApplicationFacade.SET_TITLE, "");
+					ApplicationFacade.TRACKER.trackPageview("/aroma/" + ApplicationFacade.VERSION + "/MainScreen");
 			}
 		}
 	}

@@ -21,7 +21,7 @@ package com.coursevector.aroma.model {
     import org.puremvc.as3.multicore.patterns.proxy.Proxy;
 	
 	import com.coursevector.aroma.ApplicationFacade;
-	import cv.formats.JSON;
+	//import cv.formats.JSON;
 	
 	import flash.data.SQLResult;
 	import flash.data.SQLStatement;
@@ -165,7 +165,7 @@ package com.coursevector.aroma.model {
 			dbStatement.text = sql;
 			dbStatement.parameters[":title"] = escape(objRecipe.title);
 			dbStatement.parameters[":directions"] = escape(objRecipe.directions);
-			dbStatement.parameters[":ingredients"] = JSON.serialize(objRecipe.ingredients);
+			dbStatement.parameters[":ingredients"] = JSON.stringify(objRecipe.ingredients);
 			dbStatement.parameters[":rating"] = objRecipe.rating;
 			dbStatement.parameters[":author"] = escape(objRecipe.author);
 			dbStatement.parameters[":source"] = escape(objRecipe.source);
@@ -267,7 +267,7 @@ package com.coursevector.aroma.model {
 				for (var i:String in recipeData) {
 					recipeData[i].title = unescape(recipeData[i].title);
 					recipeData[i].directions = unescape(recipeData[i].directions);
-					recipeData[i].ingredients = JSON.deserialize(recipeData[i].ingredients);
+					recipeData[i].ingredients = JSON.parse(recipeData[i].ingredients);
 					recipeData[i].author = unescape(recipeData[i].author);
 					recipeData[i].source = unescape(recipeData[i].source);
 					recipeData[i].yields = unescape(recipeData[i].yields);
