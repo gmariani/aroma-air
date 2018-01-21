@@ -443,14 +443,14 @@ package com.recipehouse {
 			
 			// Remove
 			arrIngredientList.splice(tempIdx, 1);
-			TweenLite.to(currentIng, .5, {alpha:0}, 0, onFinishDelete, [currentIng]);
+			TweenLite.to(currentIng, .5, { alpha:0, onComplete:onFinishDelete, onCompleteParams:[currentIng]});
 			
 			// Re-Adjust
 			var spacer:uint = 5;
 			var itemHeight:uint = 31;
 			var startY:uint = 0;
 			for(var j:uint = 0; j < arrIngredientList.length; j++) {
-				TweenLite.to(arrIngredientList[j], .5, {y:startY}, 0, paneIngredient.update);
+				TweenLite.to(arrIngredientList[j], .5, { y:startY, onComplete:paneIngredient.update });
 				startY += itemHeight + spacer;
 			}
 			

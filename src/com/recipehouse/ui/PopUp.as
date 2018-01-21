@@ -262,18 +262,12 @@ package com.recipehouse.ui {
 		
 		public function show():void {
 			_shown = true;
-			this.visible = true;
-			this.alpha = 0;
-			TweenLite.to(this, .25, {alpha:1});
+			TweenLite.to(this, .25, {autoAlpha:1});
 		}
 		
 		public function hide():void {
 			_shown = false;
-			TweenLite.to(this, .25, {alpha:0}, 0, setVisible);
-		}
-		
-		private function setVisible():void {
-			this.visible = false;
+			TweenLite.to(this, .25, {autoAlpha:0});
 		}
 		
 		public function get shown():Boolean {

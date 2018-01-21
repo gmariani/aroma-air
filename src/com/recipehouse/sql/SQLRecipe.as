@@ -1,5 +1,7 @@
 package com.recipehouse.sql {
 	
+	import flash.errors.SQLError;
+
 	import flash.data.SQLResult;
 	import flash.display.Sprite;
 	
@@ -14,7 +16,7 @@ package com.recipehouse.sql {
 	import flash.events.Event;
 	
 	import com.recipehouse.sql.SQLIngredient;
-	import com.coursevector.data.JSON;
+	import com.coursevector.formats.JSON;
 	
 	public class SQLRecipe extends Sprite{
 		
@@ -34,23 +36,30 @@ package com.recipehouse.sql {
 		private var isOnline:Boolean = false;
 		
 		public function SQLRecipe() {
+			//init();
+		}
+		
+		public function load():void {
 			init();
 		}
 		
 		private function init():void {
-			//dbFile = new File("app-resource:/Aroma.db");
-			dbFile = new File("Aroma.db");
+			//dbFile = File.applicationStorageDirectory.resolvePath("Aroma.db");
+			dbFile = new File("app:/Aroma.db");
 			dbConn = new SQLConnection();
 			dbConn.addEventListener(SQLEvent.OPEN, onDBOpened);
 			dbConn.addEventListener(SQLErrorEvent.ERROR, onDBError);
 			dbConn.open(dbFile);
+			//dbConn.open(dbFile, air.SQLMode.CREATE ); will create if it doesn't exist
 		}
 		
 		private function onDBOpened(e:SQLEvent):void {
 			if (e.type == "open") getRecords();
 		}
 		
-		private function onDBError(e:SQLEvent):void { }
+		private function onDBError(e:SQLEvent):void {
+			trace("onDBError");
+		}
 		
 		public function updateRecords():void {
 			dataType = UPDATE;
@@ -65,21 +74,25 @@ package com.recipehouse.sql {
 		private function getRecords():void {
 			dbStatement = new SQLStatement();
 			dbStatement.sqlConnection = dbConn;
-			dbStatement.text = "SELECT rowid, title, directions, ingredients, rating, author, category FROM recipes";
+			dbStatement.text = "SELECT rowid, title, directions, ingredients, rating, author, category, picture FROM recipes";
 			dbStatement.addEventListener(SQLEvent.RESULT, onDBRecipeSelectResult);
-			dbStatement.execute();
+			try {
+				dbStatement.execute();
+			} catch (error:SQLError) {
+				trace(error.operation + " : " + error.details);
+			}
 		}
 		
 		private function onDBRecipeSelectResult(e:SQLEvent):void {
 			var result:SQLResult = dbStatement.getResult();
 			if (result != null)	{
 				recipeData = result.data;
-				for(var i in recipeData) {
+				for(var i:String in recipeData) {
 					recipeData[i].ingredients = JSON.deserialize(recipeData[i].ingredients);
 				}
 			}
 			dbStatement.removeEventListener(SQLEvent.RESULT, onDBRecipeSelectResult);
-			dispatchEvent(new Event(dataType));
+			dispatchEvent(new Event(SQLRecipe.RESULT));
 		}
 		
 		// SAVE RECIPES FUNCTIONS //
@@ -96,7 +109,8 @@ package com.recipehouse.sql {
 				sqlInsert += "ingredients = '" + JSON.serialize(objRecipe.ingredients) + "', ";
 				sqlInsert += "rating = " + objRecipe.rating + ", ";
 				sqlInsert += "author = '" + objRecipe.author + "', ";
-				sqlInsert += "category = '" + objRecipe.category + "' ";
+				sqlInsert += "category = '" + objRecipe.category + "', ";
+				sqlInsert += "picture = '' ";
 				sqlInsert += "WHERE rowid = " + objRecipe.rowid;
 			} else {
 				// add
@@ -106,6 +120,7 @@ package com.recipehouse.sql {
 				sqlInsert += "'" + JSON.serialize(objRecipe.ingredients) + "', ";
 				sqlInsert += objRecipe.rating + ", ";
 				sqlInsert += "'" + objRecipe.author + "', ";
+				sqlInsert += "'', ";// Image
 				sqlInsert += "'" + objRecipe.category + "');";
 			}
 			

@@ -1,4 +1,6 @@
-﻿package com.recipehouse {
+﻿// TODO fix update display when a new recipe is added
+
+package com.recipehouse {
 	
 	import flash.display.MovieClip;
 	import flash.events.Event;
@@ -20,10 +22,9 @@
 	import flash.filesystem.File;
 	import flash.filesystem.FileStream;
 	import flash.filesystem.FileMode;
-	import flash.system.Updater;
+	import flash.desktop.Updater;
 	
 	import gs.TweenLite;
-	import fl.motion.easing.*;
 	import com.recipehouse.DisplayRecipe;
 	import com.recipehouse.AddRecipe;
 	import com.recipehouse.Preferences;
@@ -63,15 +64,16 @@
 		private var sqlRecipe:SQLRecipe;
 		private var recipeInterval:uint;
 		private var	RecipeTalk:Talk = new Talk();
-		private var curVersion:String = "1.0.M6";
+		private var curVersion:String = "1.0.0";
 		private var newVersion:String;
+		private var isStarted:Boolean = false;
 		
 		public function Main():void {
-			
 			// Get Recipes
 			sqlRecipe = new SQLRecipe();
 			sqlRecipe.addEventListener(SQLRecipe.RESULT, onDBResult);
 			sqlRecipe.addEventListener(SQLRecipe.UPDATE, onDBUpdate);
+			sqlRecipe.load();
 			
 			// TODO: add filter by category. stars
 			// TODO: refined printing styling, include author, category, stars
@@ -167,6 +169,7 @@
 
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			stage.align = StageAlign.TOP_LEFT;
+			isStarted = true;
 		}
 		
 		private function initTalk():void {
@@ -201,7 +204,7 @@
 				}
 			}
 			
-			TweenLite.to(sprPageHolder, 1, {y:gotoY});
+			TweenLite.to(sprPageHolder, .75, {y:gotoY});
 		}
 		
 		private function checkVersion():void {
@@ -246,7 +249,6 @@
 		
 		private function onDBResult(e:Event):void {
 			checkVersion();
-			//init();
 		}
 		
 		private function onDBUpdate(e:Event):void {
@@ -254,15 +256,15 @@
 		}
 		
 		private function onClickClose(e:MouseEvent):void {
-			stage.window.close();
+			stage.nativeWindow.close();
 		}
 		
 		private function onClickMaximize(e:MouseEvent):void {
-			stage.window.maximize();
+			stage.nativeWindow.maximize();
 		}
 		
 		private function onClickMinimize(e:MouseEvent):void {
-			stage.window.minimize();
+			stage.nativeWindow.minimize();
 		}
 		
 		private function onRecipeNum(e:Event):void {
@@ -299,7 +301,7 @@
 		}
 		
 		public function onStartMove(event:MouseEvent):void {
-			stage.window.startMove();
+			stage.nativeWindow.startMove();
 		}
 		
 		private function onSearch(e:Event):void {

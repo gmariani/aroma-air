@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<application xmlns="http://ns.adobe.com/air/application/1.0">
+	<id>Aroma</id>
+	<filename>Aroma</filename>
+	<name>Recipe House: Aroma</name>
+	<version>1.0.0</version>
+	<description>Your easy to navigate Recipe House! Check www.coursevector.com/recipehouse for udpates.</description>
+	<copyright>Copyright 2007 Course Vector</copyright>
+
+	<initialWindow>
+		  <title>Recipe House: Aroma</title>
+		  <content>Main.swf</content>
+		  <systemChrome>none</systemChrome>
+		  <transparent>true</transparent>
+		  <visible>true</visible>
+	</initialWindow>
+
+	<icon>
+		  <image16x16>icons/Icon_16.png</image16x16>
+		  <image32x32>icons/Icon_32.png</image32x32>
+		  <image48x48>icons/Icon_48.png</image48x48>
+		  <image128x128>icons/Icon_128.png</image128x128>
+	</icon>
+	
+	<customUpdateUI>false</customUpdateUI>
+	<allowBrowserInvocation>false</allowBrowserInvocation>
+</application>

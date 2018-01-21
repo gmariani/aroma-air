@@ -341,8 +341,8 @@ package com.recipehouse {
 			btnEdit.y = 160;
 			btnEdit.alpha = .5;
 			btnEdit.addEventListener(MouseEvent.CLICK, onClickEdit);
-			btnEdit.addEventListener(MouseEvent.MOUSE_OVER, onRollOver);
-			btnEdit.addEventListener(MouseEvent.MOUSE_OUT, onRollOut);
+			btnEdit.addEventListener(MouseEvent.MOUSE_OVER, onOverButton);
+			btnEdit.addEventListener(MouseEvent.MOUSE_OUT, onOutButton);
 			addChild(btnEdit);
 			
 			// Print Btn
@@ -350,8 +350,8 @@ package com.recipehouse {
 			btnPrint.y = 160;
 			btnPrint.alpha = .5;
 			btnPrint.addEventListener(MouseEvent.CLICK, onClickPrint);
-			btnPrint.addEventListener(MouseEvent.MOUSE_OVER, onRollOver);
-			btnPrint.addEventListener(MouseEvent.MOUSE_OUT, onRollOut);
+			btnPrint.addEventListener(MouseEvent.MOUSE_OVER, onOverButton);
+			btnPrint.addEventListener(MouseEvent.MOUSE_OUT, onOutButton);
 			addChild(btnPrint);
 			
 			// Share Btn
@@ -359,8 +359,8 @@ package com.recipehouse {
 			btnShare.y = 160;
 			btnShare.alpha = .5;
 			btnShare.addEventListener(MouseEvent.CLICK, onClickShare);
-			btnShare.addEventListener(MouseEvent.MOUSE_OVER, onRollOver);
-			btnShare.addEventListener(MouseEvent.MOUSE_OUT, onRollOut);
+			btnShare.addEventListener(MouseEvent.MOUSE_OVER, onOverButton);
+			btnShare.addEventListener(MouseEvent.MOUSE_OUT, onOutButton);
 			addChild(btnShare);
 			
 			// Delete Btn			
@@ -368,8 +368,8 @@ package com.recipehouse {
 			btnDelete.y = 160;
 			btnDelete.alpha = .5;
 			btnDelete.addEventListener(MouseEvent.CLICK, onClickDelete);
-			btnDelete.addEventListener(MouseEvent.MOUSE_OVER, onRollOver);
-			btnDelete.addEventListener(MouseEvent.MOUSE_OUT, onRollOut);
+			btnDelete.addEventListener(MouseEvent.MOUSE_OVER, onOverButton);
+			btnDelete.addEventListener(MouseEvent.MOUSE_OUT, onOutButton);
 			addChild(btnDelete);
 			
 			// Ingredient Holder
@@ -495,9 +495,9 @@ package com.recipehouse {
 				strDisplay += objIng.fraction;
 			}
 			if(objIng.size != " ") {
-				strDisplay += " " + objIng.size;
+				strDisplay += objIng.size;
 			}
-			strDisplay += " " + objIng.label;
+			strDisplay += objIng.label;
 			return strDisplay;
 		}
 		
@@ -629,12 +629,14 @@ package com.recipehouse {
 			}
 		}
 		
-		private function onRollOver(e:MouseEvent):void {
-			e.target.alpha = 1;
+		private function onOverButton(e:MouseEvent):void {
+			TweenLite.to(e.target, 0.5, { alpha:1 } );
+			//e.target.alpha = 1;
 		}
 		
-		private function onRollOut(e:MouseEvent):void {
-			e.target.alpha = .5;
+		private function onOutButton(e:MouseEvent):void {
+			TweenLite.to(e.target, 0.5, { alpha:.5 } );
+			//e.target.alpha = .5;
 		}
 		
 		private function onNameAvail(e:Event):void {

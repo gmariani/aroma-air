@@ -187,7 +187,7 @@ package com.recipehouse {
 			txtInput.height = 30;
 			txtInput.restrict = "A-Za-z0-9 @.";
 			txtInput.type = TextFieldType.INPUT;
-			txtInput.text = " ";
+			txtInput.text = "";
 			txtInput.embedFonts = true;
 			txtInput.setTextFormat(frmtCopy);
 			txtInput.addEventListener(Event.CHANGE, onChangeInput);
@@ -232,7 +232,7 @@ package com.recipehouse {
 				txtInput.text = soManager.data.userName;
 				isValid = true;
 			} else {
-				txtInput.text = " ";
+				txtInput.text = "";
 			}
 			txtInput.setTextFormat(frmtCopy);
 			

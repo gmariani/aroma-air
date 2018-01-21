@@ -1,6 +1,6 @@
 package com.recipehouse.net {
 	
-	import com.coursevector.data.JSON;
+	import com.coursevector.formats.JSON;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.events.IOErrorEvent;

@@ -62,7 +62,7 @@ package com.recipehouse {
 			txtName.setTextFormat(frmtUser);
 			addChild(txtName);	
 			
-			txtCopyRight.text = "2007 Course Vector";
+			txtCopyRight.text = new Date().fullYear + " Course Vector";
 			txtCopyRight.x = (STAGE_WIDTH / 2) - (txtCopyRight.textWidth / 2);
 			txtCopyRight.y = 595;
 			txtCopyRight.selectable = false;
