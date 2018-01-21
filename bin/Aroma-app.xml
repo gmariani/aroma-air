@@ -1,1 +1,54 @@
-﻿<?xml version ="1.0" encoding="utf-8" ?><application xmlns="http://ns.adobe.com/air/application/1.0"><id>com.air.flash.Main</id><version>1.0.0</version><filename>Aroma</filename><description>Your easy to navigate Recipe House! Check www.coursevector.com/recipehouse for udpates.</description><name>Recipe House: Aroma</name><copyright>2007 Course Vector</copyright><initialWindow><content>Aroma.swf</content><systemChrome>none</systemChrome><transparent>true</transparent><visible>true</visible></initialWindow><icon></icon><customUpdateUI>false</customUpdateUI><allowBrowserInvocation>false</allowBrowserInvocation></application>
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><application xmlns="http://ns.adobe.com/air/application/1.5">
+	<id>com.coursevector.aroma</id>
+	<version>2.4.0</version>
+	<filename>Aroma</filename>
+	<name>Course Vector Aroma</name>
+	<description>Your easy to navigate Recipe House! Check http://blog.coursevector.com/aroma for updates.</description>
+	<copyright>Copyright (c) 2010 Course Vector</copyright>
+	<installFolder>Course Vector</installFolder>
+	<programMenuFolder>Course Vector</programMenuFolder>
+	<initialWindow>
+		  <content>Aroma.swf</content>
+		  <systemChrome>none</systemChrome>
+		  <transparent>true</transparent>
+		  <visible>true</visible>
+		  <minSize>800 400</minSize>
+		  <maximizable>true</maximizable>
+		  <minimizable>true</minimizable>
+		  <resizable>true</resizable>
+	</initialWindow>
+	<icon>
+		  <image128x128>icons/Icon_128.png</image128x128>
+		  <image48x48>icons/Icon_48.png</image48x48>
+		  <image32x32>icons/Icon_32.png</image32x32>
+		  <image16x16>icons/Icon_16.png</image16x16>
+	</icon>
+	<customUpdateUI>false</customUpdateUI>
+	<allowBrowserInvocation>false</allowBrowserInvocation>
+	<fileTypes>
+		  <fileType>
+			  <name>Aroma.CookBook</name>
+			  <extension>ckbk</extension>
+			  <description>Aroma Cook Book</description>
+			  <contentType>application/octet-stream</contentType>
+			  <icon>
+				    <image16x16>icons/CKBK_16.png</image16x16>
+				    <image32x32>icons/CKBK_32.png</image32x32>
+				    <image48x48>icons/CKBK_48.png</image48x48>
+				    <image128x128>icons/CKBK_128.png</image128x128>
+			</icon>
+		</fileType>
+		  <fileType>
+			  <name>Aroma.Recipe</name>
+			  <extension>rcpe</extension>
+			  <description>Aroma Recipe</description>
+			  <contentType>application/octet-stream</contentType>
+			  <icon>
+				    <image16x16>icons/RCPE_16.png</image16x16>
+				    <image32x32>icons/RCPE_32.png</image32x32>
+				    <image48x48>icons/RCPE_48.png</image48x48>
+				    <image128x128>icons/RCPE_128.png</image128x128>
+			</icon>
+		</fileType>
+	</fileTypes>
+</application>

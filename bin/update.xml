@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<update xmlns="http://ns.adobe.com/air/framework/update/description/1.0">
+	<version>2.4.0</version>
+	<url>http://blog.coursevector.com/downloads/Aroma-2-4-0.air</url>
+	<description><![CDATA[
+	New version includes:
+		* Added a Random recipe button
+	]]></description>
+</update>
